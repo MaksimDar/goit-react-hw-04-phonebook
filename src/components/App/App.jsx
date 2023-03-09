@@ -9,7 +9,7 @@ import Filter from '../Filter/Filter';
 const App = () => {
   const [contacts, setContacts] = useState([]);
   const [filter, setFilter] = useState('');
-  useEffect(() => {});
+  useEffect(() => {const});
   // componentDidMount() {
   //   const contacts = localStorage.getItem('contacts');
   //   const parsedContacts = JSON.parse(contacts);
