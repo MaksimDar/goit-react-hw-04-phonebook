@@ -1,21 +1,14 @@
-import React from 'react';
-import { useLocalStorage } from '../Hooks/useLocalStorage';
-
-import { nanoid } from 'nanoid';
-import List from '../List/List';
+// import { nanoid } from 'nanoid';
+// import List from '../List/List';
 import { InputHeader } from './App.styled';
 import Form from '../Form/Form';
-import Filter from '../Filter/Filter';
+// import Filter from '../Filter/Filter';
+import { useState, useEffect } from 'react';
 
 const App = () => {
-  const [contacts, setContacts] = useLocalStorage('contacts', []);
+  const [contacts, setContacts] = useState('contacts');
   const [filter, setFilter] = useState('');
 
-  const { number, name } = contacts;
-  const handleChangeInput = e => {
-    const { name, value } = e.currentTarget;
-    switch
-  };
   // const handleFilterChange = event => {
   //   setFilter({
   //     filter: event.currentTarget.value,
@@ -64,10 +57,9 @@ const App = () => {
     <>
       <InputHeader>PhoneBook</InputHeader>
       <Form
-        name={name}
-        number={number}
-        // addContacts={addContacts}
-        handleInputChange={handleChangeInput}
+      // name={name}
+      // number={number}
+      // addContacts={addContacts}
       />
       <InputHeader>Contacts</InputHeader>
       {/* <Filter value={filter} ChangeContact={handleFilterChange} />
