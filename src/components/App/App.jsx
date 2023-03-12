@@ -24,7 +24,9 @@ export const App = () => {
     setFilter(event.currentTarget.value);
   };
   const addContact = (name, number) => {
-    const condition = contacts.find(contact => contact.name === name);
+    const condition = contacts.find(
+      contact => contact.name.toLowerCase() === name.toLowerCase()
+    );
 
     if (condition) {
       alert(`${name} is already in contacts!`);
@@ -42,8 +44,10 @@ export const App = () => {
     setContacts(state => state.filter(contact => contact.id !== contactId));
   };
   const getVisibleContacts = () => {
-    const normalizedFilter = filter;
-    return contacts.filter(contact => contact.name.includes(normalizedFilter));
+    const normalizedFilter = filter.toLowerCase;
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalizedFilter)
+    );
   };
   const filteredContacts = getVisibleContacts;
 
