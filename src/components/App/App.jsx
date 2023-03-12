@@ -16,7 +16,7 @@ const useLocalStorage = (key, defaultValue) => {
   return [state, setState];
 };
 
-export default function App() {
+export const App = () => {
   const [contacts, setContacts] = useLocalStorage('contacts', []);
   const [filter, setFilter] = useState('');
 
@@ -56,4 +56,4 @@ export default function App() {
       <List contacts={filteredContacts} deleteContact={removeItem} />
     </>
   );
-}
+};
