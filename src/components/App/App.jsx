@@ -45,6 +45,7 @@ export default function App() {
     const normalizedFilter = filter;
     return contacts.filter(contact => contact.name.includes(normalizedFilter));
   };
+  const filteredContacts = getVisibleContacts;
 
   return (
     <>
@@ -52,7 +53,7 @@ export default function App() {
       <Form addContacts={addContact} />
       <InputHeader>Contacts</InputHeader>
       <Filter value={filter} ChangeContact={handleFilterChange} />
-      <List contacts={getVisibleContacts()} deleteContact={removeItem} />
+      <List contacts={filteredContacts} deleteContact={removeItem} />
     </>
   );
 }
