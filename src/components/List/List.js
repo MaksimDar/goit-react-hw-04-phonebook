@@ -4,15 +4,16 @@ import ContactItem from '../ContactItem/ContactItem';
 const List = ({ contacts, deleteContact }) => {
   return (
     <ul>
-      {contacts.map(({ id, name, number }) => (
-        <ContactItem
-          key={id}
-          id={id}
-          name={name}
-          number={number}
-          removeContact={deleteContact}
-        />
-      ))}
+      {contacts.map(({ id, name, number }) => {
+        return (
+          <ContactItem
+            key={id}
+            name={name}
+            number={number}
+            removeContact={deleteContact}
+          />
+        );
+      })}
     </ul>
   );
 };

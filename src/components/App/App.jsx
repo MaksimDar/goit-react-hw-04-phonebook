@@ -27,7 +27,7 @@ export default function App() {
   //   window.localStorage.setItem('contacts', JSON.stringify(contacts));
   // }, [contacts]);
 
-  const addContact = ({ name, number }) => {
+  const addContact = (name, number) => {
     // if (checkContact(name)) {
     //   alert(`${name} is already in contacts`);
     //   return;
@@ -72,7 +72,7 @@ export default function App() {
       <Form addContacts={addContact} />
       <InputHeader>Contacts</InputHeader>
       {/* <Filter value={filter} ChangeContact={handleFilterChange} /> */}
-      {/* <List contacts={visibleContacts} deleteContact={removeItem} /> */}
+      <List contacts={contacts} />
     </>
   );
 }
