@@ -7,6 +7,7 @@ const List = ({ contacts, deleteContact }) => {
       {contacts.map(({ id, name, number }) => {
         return (
           <ContactItem
+            id={id}
             key={id}
             name={name}
             number={number}

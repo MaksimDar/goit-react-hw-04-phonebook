@@ -23,9 +23,9 @@ export default function App() {
   //     filter: event.currentTarget.value,
   //   });
   // };
-  // useEffect(() => {
-  //   window.localStorage.setItem('contacts', JSON.stringify(contacts));
-  // }, [contacts]);
+  useEffect(() => {
+    window.localStorage.setItem('contacts', JSON.stringify(contacts));
+  }, [contacts]);
 
   const addContact = (name, number) => {
     // if (checkContact(name)) {
@@ -72,7 +72,7 @@ export default function App() {
       <Form addContacts={addContact} />
       <InputHeader>Contacts</InputHeader>
       {/* <Filter value={filter} ChangeContact={handleFilterChange} /> */}
-      <List contacts={contacts} />
+      {/* <List contacts={contacts} /> */}
     </>
   );
 }
