@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ContactForm, Label, Span, AddContactButton } from './Form.styled';
 import PropTypes from 'prop-types';
-import { nanoid } from 'nanoid';
+
 export default function Form({ addContacts }) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
