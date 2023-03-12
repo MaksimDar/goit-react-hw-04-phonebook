@@ -1,5 +1,5 @@
+import List from '../List/List';
 import { nanoid } from 'nanoid';
-// import List from '../List/List';
 import { InputHeader } from './App.styled';
 import Form from '../Form/Form';
 // import Filter from '../Filter/Filter';
@@ -16,32 +16,42 @@ const useLocalStorage = (key, defaultValue) => {
 
 export default function App() {
   const [contacts, setContacts] = useLocalStorage('contacts', []);
-  const [filter, setFilter] = useState('');
+  // const [filter, setFilter] = useState('');
 
   // const handleFilterChange = event => {
   //   setFilter({
   //     filter: event.currentTarget.value,
   //   });
   // };
-  useEffect(() => {
-    window.localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
-  const addContacts = (name, number) => {
-    const condition = contacts.find(
-      contact => contact.name.toLowerCase() === name.toLowerCase()
-    );
-    if (condition) {
-      alert(`${name} name is already in contacts`);
-      return;
-    }
-    const newContact = {
-      id: nanoid(),
+  // useEffect(() => {
+  //   window.localStorage.setItem('contacts', JSON.stringify(contacts));
+  // }, [contacts]);
+
+  const addContact = ({ name, number }) => {
+    // if (checkContact(name)) {
+    //   alert(`${name} is already in contacts`);
+    //   return;
+    // }
+
+    const contact = {
       name: name,
       number: number,
+      id: nanoid(),
     };
-    setContacts(prevState => [newContact, ...prevState]);
+
+    setContacts(prevState => [contact, ...prevState]);
   };
 
+  // const checkContact = checkedNameContact => {
+  //   const res = contacts.find(contact => contact.name === checkedNameContact);
+  //   return res;
+  // };
+  // const checkContact = checkedName => {
+  //   const checkedContacts = contacts.find(
+  //     contact => contact.name === checkedName
+  //   );
+  //   return checkedContacts;
+  // };
   // const removeItem = contactId => {
   //   setContacts(() => ({
   //     contacts: contacts.filter(contact => contact.id !== contactId),
@@ -59,10 +69,10 @@ export default function App() {
   return (
     <>
       <InputHeader>PhoneBook</InputHeader>
-      <Form addContacts={addContacts} />
+      <Form addContacts={addContact} />
       <InputHeader>Contacts</InputHeader>
-      {/* <Filter value={filter} ChangeContact={handleFilterChange} />
-      <List contacts={visibleContacts} deleteContact={removeItem} /> */}
+      {/* <Filter value={filter} ChangeContact={handleFilterChange} /> */}
+      {/* <List contacts={visibleContacts} deleteContact={removeItem} /> */}
     </>
   );
 }
