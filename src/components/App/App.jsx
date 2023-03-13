@@ -44,12 +44,10 @@ export const App = () => {
     setContacts(state => state.filter(contact => contact.id !== contactId));
   };
   const getVisibleContacts = () => {
-    const normalizedFilter = filter.toLowerCase;
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(normalizedFilter)
-    );
+    const normalizedFilter = filter;
+    return contacts.filter(contact => contact.name.includes(normalizedFilter));
   };
-  const filteredContacts = getVisibleContacts;
+  const filteredContacts = getVisibleContacts();
 
   return (
     <>
