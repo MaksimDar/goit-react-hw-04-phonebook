@@ -8,6 +8,7 @@ const List = ({ contacts, deleteContact }) => {
         return (
           <ContactItem
             key={id}
+            id={id}
             name={name}
             number={number}
             removeContact={deleteContact}
