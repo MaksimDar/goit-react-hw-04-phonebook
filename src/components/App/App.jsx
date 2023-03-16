@@ -40,10 +40,8 @@ export const App = () => {
     setContacts(prevState => [newContact, ...prevState]);
   };
 
-  const removeItem = contactId => {
-    setContacts(prevState =>
-      prevState.filter(contact => contact.id !== contactId)
-    );
+  const removeItem = id => {
+    setContacts(prevState => prevState.filter(contact => contact.id !== id));
   };
   const getVisibleContacts = () => {
     const normalizedFilter = filter;
