@@ -44,8 +44,10 @@ export const App = () => {
     setContacts(prevState => prevState.filter(contact => contact.id !== id));
   };
   const getVisibleContacts = () => {
-    const normalizedFilter = filter;
-    return contacts.filter(contact => contact.name.includes(normalizedFilter));
+    const visibleContacts = contacts.filter(contact =>
+      contact.name.includes(filter)
+    );
+    return visibleContacts;
   };
   const filteredContacts = getVisibleContacts();
 
